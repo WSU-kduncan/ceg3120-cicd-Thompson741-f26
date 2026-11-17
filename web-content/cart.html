@@ -1,0 +1,167 @@
+<!--Jack Thompson-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" href="../class-activity-JThompson49/Photos/favicon-96x96.png" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>ChocoVibe - Cart</title>
+</head>
+
+<body>
+    <!-- banner of the website -->
+    <header>
+        <a href="/index.html">
+            <img src="/images/chocolatebarclipart.png" alt="ChocoVibe logo" style="height:60px;">
+        </a>
+        <h1>ChocoVibe</h1>
+        <a href="cart.html">
+            <img src="/images/cartclipart.png" alt="Cart" style="height:60px;">
+        </a>
+    </header>
+
+    <!--navigation code block-->
+    <div class="navbar">
+        <ul>
+            <li>
+                <a href="/index.html">Home</a>
+            </li>
+            <li>
+                <a href="products.html">Products</a>
+            </li>
+            <li>
+                <a href="cart.html">Cart</a>
+            </li>
+            <li>
+                <a href="checkout.html">Checkout</a>
+            </li>
+        </ul>
+    </div>
+    <!-- main area-->
+    <div class="container">
+        <div style="margin-top: 20px;">
+            <h2 style="color: var(--accent);">Your Cart</h2>
+        </div>
+
+        <div class="cartItems">
+            <div class="cartRow" data-price="5.00">
+                <div class="cartName">Classic</div>
+                <div class="cartQty">
+                    <button class="decrease">-</button>
+                    <span class="qty">0</span>x
+                    <button class="increase">+</button>
+                </div>
+                <div class="cartPrice">$0.00</div>
+            </div>
+
+            <div class="cartRow" data-price="6.00">
+                <div class="cartName">Caramel</div>
+                <div class="cartQty">
+                    <button class="decrease">-</button>
+                    <span class="qty">0</span>x
+                    <button class="increase">+</button>
+                </div>
+                <div class="cartPrice">$0.00</div>
+            </div>
+
+            <div class="cartRow" data-price="6.50">
+                <div class="cartName">Hazelnut</div>
+                <div class="cartQty">
+                    <button class="decrease">-</button>
+                    <span class="qty">0</span>x
+                    <button class="increase">+</button>
+                </div>
+                <div class="cartPrice">$0.00</div>
+            </div>
+
+            <div class="cartRow" data-price="5.50">
+                <div class="cartName">Orange</div>
+                <div class="cartQty">
+                    <button class="decrease">-</button>
+                    <span class="qty">0</span>x
+                    <button class="increase">+</button>
+                </div>
+                <div class="cartPrice">$0.00</div>
+            </div>
+
+            <div class="cartRow" data-price="5.50">
+                <div class="cartName">Mint</div>
+                <div class="cartQty">
+                    <button class="decrease">-</button>
+                    <span class="qty">0</span>x
+                    <button class="increase">+</button>
+                </div>
+                <div class="cartPrice">$0.00</div>
+            </div>
+
+            <div class="cartRow" data-price="6.00">
+                <div class="cartName">Almond</div>
+                <div class="cartQty">
+                    <button class="decrease">-</button>
+                    <span class="qty">0</span>x
+                    <button class="increase">+</button>
+                </div>
+                <div class="cartPrice">$0.00</div>
+            </div>
+        </div>
+
+        <div style="margin-top: 20px; color: var(--accent); font-size: 18px;">
+            <p>Total: <span id="cartTotal">$0.00</span></p>
+            <a class="btn" href="checkout.html">Proceed to Checkout</a>
+        </div>
+
+    </div>
+    <!-- Footer -->
+    <div class="footer">
+        <p>Copyright | CS 2800 Team</p>
+    </div>
+    <script src="script.js"></script>
+    <script>
+
+        const rows = document.querySelectorAll('.cartRow');
+
+        rows.forEach(row => {
+            const price = parseFloat(row.dataset.price);
+            const qtySpan = row.querySelector('.qty');
+            const priceDisplay = row.querySelector('.cartPrice');
+            const decreaseBtn = row.querySelector('.decrease');
+            const increaseBtn = row.querySelector('.increase');
+
+            let quantity = parseInt(qtySpan.textContent);
+
+            function updateRow() {
+                qtySpan.textContent = quantity;
+                priceDisplay.textContent = `$${(price * quantity).toFixed(2)}`;
+                updateTotal();
+            }
+
+            decreaseBtn.addEventListener('click', () => {
+                if (quantity > 0) {
+                    quantity--;
+                    updateRow();
+                }
+            });
+
+            increaseBtn.addEventListener('click', () => {
+                quantity++;
+                updateRow();
+            });
+        });
+
+        function updateTotal() {
+            let total = 0;
+            document.querySelectorAll('.cartRow').forEach(row => {
+                const price = parseFloat(row.dataset.price);
+                const qty = parseInt(row.querySelector('.qty').textContent);
+                total += price * qty;
+            });
+            document.getElementById('cartTotal').textContent = `$${total.toFixed(2)}`;
+            localStorage.setItem("cartTotal", total.toFixed(2));
+        }
+
+        updateTotal();
+    </script>
+
+</body>
+
+</html>

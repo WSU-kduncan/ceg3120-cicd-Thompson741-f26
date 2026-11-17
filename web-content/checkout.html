@@ -1,0 +1,118 @@
+<!--Jack Thompson-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" href="../class-activity-JThompson49/Photos/favicon-96x96.png" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>ChocoVibe - Checkout</title>
+</head>
+
+<body>
+    <!-- banner of the website -->
+    <header>
+        <a href="/index.html">
+            <img src="/images/chocolatebarclipart.png" alt="ChocoVibe logo" style="height:60px;">
+        </a>
+        <h1>ChocoVibe</h1>
+        <a href="cart.html">
+            <img src="/images/cartclipart.png" alt="Cart" style="height:60px;">
+        </a>
+    </header>
+
+    <!--navigation code block-->
+    <div class="navbar">
+        <ul>
+            <li>
+                <a href="/index.html">Home</a>
+            </li>
+            <li>
+                <a href="products.html">Products</a>
+            </li>
+            <li>
+                <a href="cart.html">Cart</a>
+            </li>
+            <li>
+                <a href="checkout.html">Checkout</a>
+            </li>
+        </ul>
+    </div>
+    <!-- main area-->
+    <div class="container">
+        <div style="margin-top: 20px;">
+            <h2 style="color: var(--accent);">Checkout</h2>
+        </div>
+
+        <form id="checkoutForm">
+            <div class="checkoutGrid">
+                <div class="checkoutSection">
+                    <h3>Contact</h3>
+                    <label>Name</label><br />
+                    <input type="text" id="name" /><br />
+                    <label>Email</label><br />
+                    <input type="text" id="email" />
+                </div>
+
+                <div class="checkoutSection">
+                    <h3>Delivery</h3>
+                    <label>Address</label><br />
+                    <input type="text" id="address" /><br />
+                    <label>City</label><br />
+                    <input type="text" id="city" /><br />
+                    <label>ZIP</label><br />
+                    <input type="text" id="zip" />
+                </div>
+
+                <div class="checkoutSection">
+                    <h3>Payment</h3>
+                    <label>Card Number</label><br />
+                    <input type="text" id="card" /><br />
+                    <label>Expiration</label><br />
+                    <input type="text" id="exp" /><br />
+                    <label>CVV</label><br />
+                    <input type="text" id="cvv" />
+                </div>
+            </div>
+
+            <div style="margin-top: 20px;">
+                <p style="color: var(--accent);">
+                    We hope you enjoy!
+                </p>
+                <p style="color: var(--accent);">Total: $<span id="checkoutTotal">0.00</span></p>
+                <button type="submit" class="btn" style="margin-top: 12px;">Submit Order</button>
+            </div>
+        </form>
+    </div>
+
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>Copyright | CS 2800 Team</p>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        document.getElementById("checkoutTotal").textContent = localStorage.getItem("cartTotal") || "0.00";
+
+        document.getElementById("checkoutForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            order = {
+                name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                address: document.getElementById("address").value,
+                city: document.getElementById("city").value,
+                zip: document.getElementById("zip").value,
+                card: document.getElementById("card").value,
+                exp: document.getElementById("exp").value,
+                cvv: document.getElementById("cvv").value,
+                total: localStorage.getItem("cartTotal") || "0.00"
+            };
+
+            localStorage.setItem("checkoutOrder", JSON.stringify(order));
+            alert("Order submitted! Your Total Was: $" + order.total);
+        });
+    </script>
+
+</body>
+
+</html>

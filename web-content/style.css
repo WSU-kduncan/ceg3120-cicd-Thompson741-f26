@@ -1,0 +1,262 @@
+/*Jack Thompson*/
+
+:root {
+    --choco: #3b2f2b;
+    --accent: #c78b4b;
+    --text: #f7efe8;
+}
+
+
+
+
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background: var(--choco);
+    color: #222;
+    padding: 16px;
+}
+
+/*h1, h2, h3, h4, h5, h6{
+        font-size: large;
+        color: chartreuseS;
+    }*/
+
+#banner {
+    color: var(--text);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content:
+        space-between;
+    gap: 12px;
+}
+
+header h1 {
+    margin: 0;
+    color: var(--accent);
+    font-size: 3rem;
+}
+
+
+.container {
+    background-color: var(--choco);
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 12px;
+}
+
+
+
+
+
+.navbar ul li {
+    display: inline;
+}
+
+
+.navbar ul li a {
+    padding: 20px;
+    text-decoration: none;
+    background-color: var(--accent);
+    color: #2b1a10;
+
+}
+
+.navbar ul li a:hover {
+    background-color: #AE8643;
+}
+
+.navbar ul {
+    margin: 0px;
+    padding: 20px;
+    background-color: #745028;
+    display: flex;
+    /* text-align: center; */
+    justify-content: center;
+    list-style-type: none;
+
+
+}
+
+.mainArea {
+    display: flex;
+    gap: 16px;
+    margin-top: 18px;
+    align-items: flex-start;
+}
+
+
+.mainDisplayImage {
+    flex: 60%;
+}
+
+.mainDisplayImage img {
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+
+}
+
+.subNavBar ul li a {
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
+.subNavBar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.subNavBar ul li {
+    padding: 10px;
+}
+
+.rightTextColumn {
+    flex: 20%;
+    color: var(--accent);
+    font-size: 20px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul li {
+    display: inline-block;
+}
+
+.subArea {
+    display: flex;
+    padding: 20px;
+    flex: 20%;
+    color: var(--accent);
+    font-size: 20px;
+}
+
+.leftSubArea {
+    flex: 50%;
+}
+
+.rightSubArea {
+    flex: 50%;
+}
+
+.leftSubArea p {
+    text-align: justify;
+    padding: 10px;
+}
+
+.rightSubArea table th,
+td {
+    padding: 10px;
+}
+
+.rightSubArea table th {
+    background-color: #00482B;
+    color: white;
+}
+
+.rightSubArea table td {
+    background-color: #E7E3C6;
+    color: #AE8643;
+}
+
+.footer {
+    padding: 20px;
+    color: var(--accent);
+    text-align: center;
+}
+
+.productGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.product {
+    background: var(--accent);
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+    color: #222222;
+}
+
+
+.product img {
+    width: 100%;
+    border-radius: 4px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.cartItems {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.cartRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--accent);
+    padding: 10px;
+    border-radius: 6px;
+    color: #232222;
+}
+
+
+.cartQty {
+    flex: 1;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+}
+
+.cartName {
+    flex: 2;
+}
+
+.cartPrice {
+    flex: 1;
+    text-align: right;
+}
+
+.checkoutGrid {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.checkoutSection {
+    flex: 1;
+    background: #f5ede5;
+    padding: 12px;
+    border-radius: 6px;
+    color: #222;
+}
+
+.checkoutSection h3 {
+    margin-top: 0;
+    color: var(--accent);
+}
+
+.checkoutSection input {
+    width: 100%;
+    padding: 6px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #cfc7c7;
+}
